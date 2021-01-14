@@ -48,7 +48,7 @@ function menuMaker(menuItems) {
     list.appendChild(listItem);
   });
 
-  const menuButton = document.querySelector("div");
+  const menuButton = document.querySelector(".menu-button");
 
   menuButton.addEventListener("click", () => {
    console.log('hello');
@@ -59,6 +59,5 @@ function menuMaker(menuItems) {
 }
 
 
-const header = document.getElementsByClassName('header')
-menuMaker.appendChild(header);
-menuMaker(menuItems)
+const header = document.querySelector('.header');
+header.appendChild(menuMaker(menuItems));
