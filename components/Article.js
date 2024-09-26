@@ -114,3 +114,57 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(data){
+  // debugger;
+// creating the elements
+const articleSection = document.createElement('div');
+const title = document.createElement('h2');
+const date = document.createElement('p');
+const paraOne = document.createElement('p');
+const paraTwo = document.createElement('p');
+const paraThree = document.createElement('p');
+const expand = document.createElement('span');
+
+// text content
+title.textContent = data.title;
+date.textContent = data.date;
+paraOne.textContent = data.firstParagraph;
+paraTwo.textContent = data.secondParagraph;
+paraThree.textContent = data.thirdParagraph;
+expand.textContent = '+';
+
+
+
+
+// creating the structure
+articleSection.appendChild(title)
+articleSection.appendChild(date)
+articleSection.appendChild(paraOne)
+articleSection.appendChild(paraTwo)
+articleSection.appendChild(paraThree)
+articleSection.appendChild(expand);
+
+// add classes
+
+articleSection.classList.add('article');
+date.classList.add('date');
+expand.classList.add('expandButton');
+
+// event listener
+expand.addEventListener('click', ()=> {
+  articleSection.classList.toggle('article-open')
+});
+
+return articleSection;
+
+}
+  
+const articleContent = data.map((articleItem) => {
+  return articleMaker(articleItem)
+});
+console.log(articleContent);
+
+ articleContent.forEach((artElement) => {
+  document.body.append(artElement)
+});
